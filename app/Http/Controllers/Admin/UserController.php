@@ -9,6 +9,10 @@ use App\Models\User;
 use DB;
 use Hash;
 use Spatie\Permission\Models\Role;
+use App\Notifications\SomeNotification;
+use Notification;
+use RajTechnologies\FCM\Models\FCM;
+
 class UserController extends Controller
 {
     public function index(Request $request)
@@ -92,20 +96,32 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')
                         ->with('success','User deleted successfully');
     }
+    // public function sendNotification()
+    // {
+    //     $user = User::first();
+  
+    //     $details = [
+    //         'greeting' => 'Hi Artisan',
+    //         'body' => 'This is my first notification from RajTechnologies.com',
+    //         'thanks' => 'Thank you for using RajTechnologies.com tuto!',
+    //         'actionText' => 'View My Site',
+    //         'actionURL' => url('/'),
+    //         'order_id' => 101
+    //     ];
+  
+    //     Notification::send($user, new UserNotification($details));
+   
+    //     dd('done');
+    // }
     public function sendNotification()
     {
+        //$fcm = FCM::get();
+        
+        
+
         $user = User::first();
-  
-        $details = [
-            'greeting' => 'Hi Artisan',
-            'body' => 'This is my first notification from RajTechnologies.com',
-            'thanks' => 'Thank you for using RajTechnologies.com tuto!',
-            'actionText' => 'View My Site',
-            'actionURL' => url('/'),
-            'order_id' => 101
-        ];
-  
-        Notification::send($user, new UserNotification($details));
+        dd($user->fcm);
+        Notification::send($user, new SomeNotification());
    
         dd('done');
     }

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 //custum
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Passport\HasApiTokens;
+use RajTechnologies\FCM\Models\FCM;
 
 class User extends Authenticatable
 {
@@ -20,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'device_token'
     ];
 
     protected $hidden = [
@@ -30,4 +32,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    //laravel relationship
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+    public function fcm()
+    {
+        return $this->hasMany(FCM::class);
+    }
+    //custom
+    public function routeNotificationForFcm($notification)
+    {
+    return $this->device_token;
+    }
+    
 }

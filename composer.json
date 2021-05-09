@@ -24,7 +24,8 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
-        "phpunit/phpunit": "^9.3.3"
+        "phpunit/phpunit": "^9.3.3",
+        "rajtechnologies/laravel-tools": "dev-master"
     },
     "config": {
         "optimize-autoloader": true,
@@ -46,7 +47,9 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "RajTechnologies\\Tools\\": "packages/laravel-tools/src"
+            "RajTechnologies\\Reminder\\": "packages/laravel-reminders/src",
+            "RaviyaFitness\\Nutrition\\": "packages/laravel-nutrition/src"
+            
         }
     },
     "minimum-stability": "dev",
@@ -63,4 +66,5 @@
             "@php artisan key:generate --ansi"
         ]
     }
+    
 }
