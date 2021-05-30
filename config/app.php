@@ -180,8 +180,8 @@ return [
         //RajTechnologies\FCM\FcmNotificationServiceProvider::class,
         //package dv
         //RajTechnologies\Tools\ToolServiceProvider::class,
-        RajTechnologies\Reminder\ReminderServiceProvider::class,
-        RaviyaFitness\Nutrition\NutritionServiceProvider::class,
+        //RajTechnologies\Reminder\ReminderServiceProvider::class,
+        //RaviyaFitness\Nutrition\NutritionServiceProvider::class,
     ],
 
     /*
